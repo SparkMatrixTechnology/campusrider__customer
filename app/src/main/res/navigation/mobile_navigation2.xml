@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.campusrider.campusridercustomer.Grocery.ui.home.GroceryFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_grocery" />
+
+    <fragment
+        android:id="@+id/nav_pantry"
+        android:name="com.campusrider.campusridercustomer.Grocery.ui.Pantry_List.PantryListFragment"
+        android:label="@string/pantry_list"
+        tools:layout="@layout/fragment_shopping_list" />
+
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.campusrider.campusridercustomer.Grocery.ui.HelpCenter.HelpFragment"
+        android:label="@string/help_center"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/nav_order"
+        android:name="com.campusrider.campusridercustomer.Grocery.ui.Order.OrderFragment"
+        android:label="@string/my_order"
+        tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/nav_complain"
+        android:name="com.campusrider.campusridercustomer.ComplainFragment"
+        android:label="Query"
+        tools:layout="@layout/fragment_complain" />
+</navigation>

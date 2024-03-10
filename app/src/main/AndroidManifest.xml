@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.google.android.c2dn.permission.Reciever"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CampusRider_Customer"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.QuestionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar"/>
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="false"
+            android:label="Profile"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Grocery.Activity.GroceryCheckoutActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Grocery.Activity.GroceryCartActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Grocery.Activity.ItemActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Grocery.GroceryMainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_grocery_main"
+            android:theme="@style/Theme.CampusRider_Customer.NoActionBar" />
+        <activity
+            android:name=".Food.activity.SearchActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Food.activity.ShopCategoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Food.activity.SelectAddressActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Food.activity.MyOrderDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Food.activity.CheckoutActivity"
+            android:exported="false"
+            android:label="Checkout"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Food.activity.CartActivity"
+            android:exported="false"
+            android:label="Cart"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".Food.activity.ShopActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.ActionBar" />
+        <activity
+            android:name=".AfterLoginActivity"
+            android:exported="false"
+            android:label="Campus Rider">
+
+        </activity>
+        <activity
+            android:name=".activity.StdID_Activity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.NoActionBar"/>
+        <activity
+            android:name=".activity.RegistrationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.NoActionBar"/>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.NoActionBar"/>
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CampusRider_Customer.NoActionBar"/>
+        <activity android:name=".activity.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CampusRider_Customer.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Food.MainActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.CampusRider_Customer.NoActionBar" />
+        <service
+            android:name=".models.FirebaseMessegingService"
+            android:permission="com.google.android.c2dn.permission.Send"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dn.intent.Reciever" />
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

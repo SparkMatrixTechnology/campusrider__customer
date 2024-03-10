@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_food_delivery"
+            android:icon="@drawable/baseline_fastfood_24"
+            android:title="@string/food_delivery" />
+        <item
+            android:id="@+id/nav_my_order"
+            android:icon="@drawable/baseline_feed_24"
+            android:title="@string/my_order"/>
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/baseline_help_24"
+            android:title="@string/help_center"/>
+        <item
+            android:id="@+id/nav_complain"
+            android:icon="@drawable/baseline_comment_24"
+            android:title="@string/query"/>
+    </group>
+</menu>

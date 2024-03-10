@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_food_delivery">
+
+    <fragment
+        android:id="@+id/nav_food_delivery"
+        android:name="com.campusrider.campusridercustomer.Food.ui.food_delivery.FoodDeliveryFragment"
+        android:label="@string/food_delivery"
+        tools:layout="@layout/fragment_food_delivery" />
+
+    <fragment
+        android:id="@+id/nav_my_order"
+        android:name="com.campusrider.campusridercustomer.Food.ui.My_Orders.MyOrderFragment"
+        android:label="@string/my_order"
+        tools:layout="@layout/fragment_my_order" />
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.campusrider.campusridercustomer.Food.ui.help.FoodHelpFragment"
+        android:label="@string/help_center"
+        tools:layout="@layout/fragment_food_help" />
+    <fragment
+        android:id="@+id/nav_complain"
+        android:name="com.campusrider.campusridercustomer.ComplainFragment"
+        android:label="Query"
+        tools:layout="@layout/fragment_complain" />
+
+</navigation>
