@@ -9,13 +9,6 @@ public class CategoryModel {
 
     ArrayList<ProductModel> productModelArrayList;
 
-    public CategoryModel(int id, int vendor_id, String name, ArrayList<ProductModel> productModelArrayList) {
-        this.id = id;
-        this.vendor_id = vendor_id;
-        this.name = name;
-        this.productModelArrayList = productModelArrayList;
-    }
-
     public CategoryModel(int id, int vendor_id, String name) {
         this.id = id;
         this.vendor_id = vendor_id;

@@ -6,11 +6,14 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -20,7 +23,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.campusrider.campusridercustomer.Food.models.CategoryModel;
 import com.campusrider.campusridercustomer.Food.models.ProductModel;
+import com.campusrider.campusridercustomer.Food.models.VariationDetailsModel;
+import com.campusrider.campusridercustomer.Food.models.VariationModel;
 import com.campusrider.campusridercustomer.R;
 import com.campusrider.campusridercustomer.databinding.ShopListItemBinding;
 import com.campusrider.campusridercustomer.utils.Constants;
@@ -40,6 +46,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     BottomSheetDialog bottomSheetDialog;
     Context context;
     ArrayList<ProductModel> list;
+    ArrayList<VariationModel> variationModelArrayList;
+    VariationDetailsAdapter variationDetailsAdapter;
+    VariationAdapter variationAdapter;
     int count=1;
     ProductModel currentProduct;
     int qty;
@@ -79,16 +88,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 TextView quantity=sheetView.findViewById(R.id.quantity);
                 ImageView minus=sheetView.findViewById(R.id.imageMinus);
                 ImageView plus=sheetView.findViewById(R.id.imageAddOne);
-
+                RecyclerView variationrec=sheetView.findViewById(R.id.variationview);
                 ImageView imageView=sheetView.findViewById(R.id.detailed_img);
                 TextView name=sheetView.findViewById(R.id.food_name);
                 TextView price=sheetView.findViewById(R.id.price);
-
                 Glide.with(context).load(itemimage).into(imageView);
                 name.setText(itemname);
                 price.setText("Tk "+itemprice);
                 quantity.setText(""+1);
                 getProductDetail(itemid);
+                variationModelArrayList=new ArrayList<>();
+                variationAdapter=new VariationAdapter(sheetView.getContext(), variationModelArrayList);
+                variationrec.setAdapter(variationAdapter);
+                getVariation(context,itemid);
+                LinearLayoutManager layoutManager=new LinearLayoutManager(context);
+                variationrec.setLayoutManager(layoutManager);
 
                  qty=1;
                 plus.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +134,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 sheetView.findViewById(R.id.add_to_cart_btn).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        int selectedPosition = variationDetailsAdapter.getSelectedPosition();
+                        if (selectedPosition != -1) {
+                            VariationModel selectedVariation = variationModelArrayList.get(selectedPosition);
+                        }
                         cart.addItem(currentProduct,qty);
                         Toast.makeText(context,"Added",Toast.LENGTH_SHORT).show();
                         bottomSheetDialog.dismiss();
@@ -190,6 +208,64 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         );
         queue.add(request);
 
+    }
+    public void getVariation(Context context,int id){
+        RequestQueue queue= Volley.newRequestQueue(context);
+        StringRequest request=new StringRequest(Request.Method.GET, Constants.GET_VARIATION_URL+id, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+
+                    JSONObject mainObj= new JSONObject(response);
+                    if(mainObj.getString("status").equals("success")){
+                        JSONArray variation_Array=mainObj.getJSONArray("Variation List");
+                        for(int i=0;i<variation_Array.length();i++) {
+                            JSONObject variation = variation_Array.getJSONObject(i);
+                            VariationModel variationModel=new VariationModel(
+                                    variation.getInt("id"),
+                                    variation.getInt("product_id"),
+                                    variation.getString("variation_name"),
+                                    variation.getString("status")
+                            );
+                            JSONArray variation_detail_Array = mainObj.getJSONArray("Variation Details List");
+                            ArrayList<VariationDetailsModel> variationDetailsModels = new ArrayList<>();
+                            for (int j = 0; j < variation_detail_Array.length(); j++) {
+                                JSONObject variation_detail = variation_detail_Array.getJSONObject(j);
+                                if(variation.getInt("id")==variation_detail.getInt("variation_id")) {
+                                    Log.e("catres1", response);
+
+                                    variationDetailsModels.add(new VariationDetailsModel(
+                                            variation_detail.getInt("variation_id"),
+                                            variation_detail.getInt("price"),
+                                            variation_detail.getString("description")
+                                    ));
+
+                                }
+
+                            }
+                            variationModel.setVariationDetailsModels(variationDetailsModels);
+                            variationModelArrayList.add(variationModel);
+                        }
+                        variationAdapter.notifyDataSetChanged();
+                    }
+                    else {
+
+                    }
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        );
+        queue.add(request);
     }
 
 }

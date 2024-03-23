@@ -11,6 +11,8 @@ public class Constants {
     public static String UPDATE_USER_URL = API_BASE_URL + "update_user.php?id=";
     public static String GET_VENDORS_URL = API_BASE_URL + "vendors.php?area=";
     public static String UPDATE_USER_TOKEN_URL = API_BASE_URL + "update_token.php?id=";
+    public static String GET_VARIATION_URL=API_BASE_URL+"view_variation.php?product_id=";
+    public static String GET_VARIATION_DETAILS_URL=API_BASE_URL+"view_variation_details.php?variation_id=";
     public static String GET_VENDOR_PRODUCTS_URL = API_BASE_URL + "vendor_food_items.php?vendor_id=";
     public static String GET_VENDOR_PRODUCTS_DETAIL_URL = API_BASE_URL + "vendor_food_detail.php?product_id=";
     public static String POST_ORDER_URL = API_BASE_URL + "place_order.php";
