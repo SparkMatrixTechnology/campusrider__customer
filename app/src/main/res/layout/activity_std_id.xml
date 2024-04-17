@@ -48,7 +48,7 @@
         android:id="@+id/confirm_button"
         android:layout_width="298dp"
         android:layout_height="61dp"
-        android:background="@drawable/btn_bg_shape"
+        android:background="@drawable/btn_bg"
         android:fontFamily="@font/open_sans_bold"
         android:padding="14dp"
         android:text="Register"

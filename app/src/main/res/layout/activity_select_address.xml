@@ -31,7 +31,7 @@
         android:background="@drawable/spinner_bg"
         android:hint="Select Area"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toStartOf="parent"

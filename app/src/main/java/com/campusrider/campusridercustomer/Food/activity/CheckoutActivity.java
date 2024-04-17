@@ -53,6 +53,7 @@ public class CheckoutActivity extends AppCompatActivity {
     }
     ActivityCheckoutBinding binding;
     CartAdapter adapter;
+    String payment_type;
     SharedPrefManager sharedPrefManager;
     int vendor_id;
     String accesstoken;
@@ -68,10 +69,37 @@ public class CheckoutActivity extends AppCompatActivity {
 
         String vendor_token=getIntent().getStringExtra("vendor_token");
         System.out.println("vendor tokenf333"+ vendor_token);
+        String vendor_name=getIntent().getStringExtra("vendor_name");
+        String delivery_fee=getIntent().getStringExtra("delivery_fee");
 
         binding.nameText.setText(sharedPrefManager.getUser().getCustomer_name());
         binding.phoneText.setText(sharedPrefManager.getUser().getCustomer_phone());
-        binding.addressBox.setText(sharedPrefManager.getUser().getAddress());
+        binding.addressText.setText(sharedPrefManager.getUser().getAddress());
+        binding.cashImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                payment_type="Cash On Delivery";
+            }
+        });
+        binding.bkashImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                payment_type="BKash";
+            }
+        });
+        binding.rocketImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                payment_type="Rocket";
+            }
+        });
+        binding.nogodImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                payment_type="Nagad";
+            }
+        });
+        binding.restaurantName.setText(v);
       getFee(new feeCallBack() {
       @Override
       public void onSuccess(int response) {
@@ -80,7 +108,6 @@ public class CheckoutActivity extends AppCompatActivity {
           productModels=new ArrayList<>();
           Cart cart = TinyCartHelper.getCart();
           Map<Item, Integer> allItemsWithQty = cart.getAllItemsWithQty();
-
           for (Map.Entry<Item, Integer> entry : allItemsWithQty.entrySet()) {
               Item item = entry.getKey();
               int quantity = entry.getValue();
@@ -111,7 +138,7 @@ public class CheckoutActivity extends AppCompatActivity {
           binding.checkoutBtn.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                  processOrder(vendor_token);
+                  processOrder(vendor_token,payment_type);
               }
           });
 
@@ -131,6 +158,9 @@ public class CheckoutActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         finish();
         return super.onSupportNavigateUp();
+    }
+    public void viewAddon(Context context){
+        
     }
     public void sendFCMNotification(Context context, String deviceToken, String title, String body, String serverKey) {
         try {
@@ -170,9 +200,11 @@ public class CheckoutActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public void processOrder(String vendor_token) {
+    public void processOrder(String vendor_token, String payment_type) {
+
 
         int customer_id = sharedPrefManager.getUser().getCustomer_id();
+
 
         JSONObject productOrder = new JSONObject();
         JSONObject dataObject = new JSONObject();
@@ -185,7 +217,7 @@ public class CheckoutActivity extends AppCompatActivity {
             productOrder.put("delivery_fee",delivery);
             productOrder.put("total_price",total_price);
             productOrder.put("comment", binding.commentBox.getText().toString());
-            productOrder.put("payment_type","Cash on Delivery");
+            productOrder.put("payment_type",payment_type);
             productOrder.put("payment_status","Unpaid");
             productOrder.put("order_status","Placed");
             productOrder.put("order_date",new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault()).format(new Date()));

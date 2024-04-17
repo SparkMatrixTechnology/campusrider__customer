@@ -46,14 +46,30 @@
                 android:text="Store Name"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.107"
+                app:layout_constraintHorizontal_bias="0.118"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.538" />
+                app:layout_constraintVertical_bias="0.246" />
+
+            <TextView
+                android:id="@+id/cat_name"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="cat Name"
+                android:textAlignment="center"
+                android:textColor="@color/search_bg"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ver_name"
+                app:layout_constraintStart_toStartOf="@+id/ver_name"
+                app:layout_constraintTop_toBottomOf="@+id/ver_name" />
 
             <ImageView
                 android:id="@+id/time_img"
@@ -62,19 +78,19 @@
                 android:src="@drawable/ic_baseline_access_time_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.593"
+                app:layout_constraintHorizontal_bias="0.642"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.508" />
+                app:layout_constraintVertical_bias="0.852" />
 
             <TextView
-                android:id="@+id/deliverytime"
+                android:id="@+id/openingTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_marginBottom="1dp"
                 android:fontFamily="@font/open_sans_bold"
-                android:text="30"
+                android:text="30 min"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -82,22 +98,32 @@
                 app:layout_constraintStart_toEndOf="@+id/time_img"
                 app:layout_constraintTop_toTopOf="@+id/time_img" />
 
+            <ImageView
+                android:id="@+id/cycle_img"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:src="@drawable/baseline_directions_bike_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.642"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.262" />
+
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/delivery_fee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="min"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="1dp"
                 android:fontFamily="@font/open_sans_bold"
+                android:text="TK 30"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/deliverytime"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/deliverytime"
-                app:layout_constraintTop_toBottomOf="@+id/ver_name"
-                app:layout_constraintVertical_bias="1.0" />
-
+                app:layout_constraintBottom_toBottomOf="@+id/cycle_img"
+                app:layout_constraintStart_toEndOf="@+id/cycle_img"
+                app:layout_constraintTop_toTopOf="@+id/cycle_img" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

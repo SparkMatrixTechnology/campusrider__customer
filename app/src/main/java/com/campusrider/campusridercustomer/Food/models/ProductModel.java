@@ -4,6 +4,7 @@ import com.hishd.tinycart.model.Item;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class ProductModel implements Item, Serializable {
     int id;
@@ -12,6 +13,7 @@ public class ProductModel implements Item, Serializable {
     String image;
     int quantity;
     int vendor_id;
+    ArrayList<VariationDetailsModel> variations;
 
     public ProductModel(int id, String name, String description, int price, String image, int vendor_id) {
         this.id = id;
@@ -82,8 +84,15 @@ public class ProductModel implements Item, Serializable {
     public int getVendor_id() {
         return vendor_id;
     }
-
     public void setVendor_id(int vendor_id) {
         this.vendor_id = vendor_id;
+    }
+
+    public ArrayList<VariationDetailsModel> getVariations() {
+        return variations;
+    }
+
+    public void setVariations(ArrayList<VariationDetailsModel> variations) {
+        this.variations = variations;
     }
 }

@@ -74,7 +74,6 @@ public class SelectAddressActivity extends AppCompatActivity {
                 sharedPrefManager.saveUser(new User(
                         sharedPrefManager.getUser().getCustomer_id(),
                         sharedPrefManager.getUser().getCustomer_name(),
-                        sharedPrefManager.getUser().getUsername(),
                         address,
                         sharedPrefManager.getUser().getCustomer_phone(),
                         sharedPrefManager.getUser().getCustomer_email(),

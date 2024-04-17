@@ -118,7 +118,6 @@ public class StdID_Activity extends AppCompatActivity {
             String contact=getIntent().getStringExtra("keycontact");
             String address=getIntent().getStringExtra("keyaddress");
             String password=getIntent().getStringExtra("keypassword");
-            String username=getIntent().getStringExtra("keyusername");
 
             StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
@@ -128,8 +127,9 @@ public class StdID_Activity extends AppCompatActivity {
                         Intent intent=new Intent(StdID_Activity.this,RegistrationActivity.class);
                         startActivity(intent);
                     }else{
-                        Toast.makeText(StdID_Activity.this,response,Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(StdID_Activity.this, AfterLoginActivity.class);
+                        Toast.makeText(StdID_Activity.this,"OTP sent Suceessfully",Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(StdID_Activity.this, OTPActivity.class);
+                        intent.putExtra("phone",contact);
                         startActivity(intent);
                     }
 
@@ -147,7 +147,6 @@ public class StdID_Activity extends AppCompatActivity {
                     Map<String,String> params=new HashMap<String, String>();
                     params.put("student_id",student_id);
                     params.put("name",name);
-                    params.put("username",username);
                     params.put("contact",contact);
                     params.put("address",address);
                     params.put("password",password);

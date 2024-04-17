@@ -145,7 +145,15 @@ public class FoodDeliveryFragment extends Fragment {
                                     object.getInt("vendor_id"),
                                     object.getString("vendor_name"),
                                     Constants.IMAGE_URL + object.getString("shop_image"),
+                                    object.getString("shop_category"),
+                                    object.getString("area"),
+                                    object.getString("address"),
+                                    object.getString("vendor_phone"),
                                     object.getString("delivery_time"),
+                                    object.getString("opening_time"),
+                                    object.getString("closing_time"),
+                                    object.getInt("vendor_status"),
+                                    object.getInt("delivery_fee"),
                                     object.getString("vendor_token")
                             );
                             homeVerModelList.add(vendor);

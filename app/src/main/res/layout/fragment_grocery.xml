@@ -11,32 +11,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.mancj.materialsearchbar.MaterialSearchBar
-            android:id="@+id/searchBar"
-            style="@style/MaterialSearchBarDark"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            app:layout_constraintEnd_toStartOf="@+id/profile"
-            app:layout_constraintHorizontal_bias="0.307"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_layout"
+            android:layout_width="349dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/search_bg"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:mt_hint="Search..."
-            app:mt_placeholder="Search...." />
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/profile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/icon_bg"
-                android:src="@drawable/baseline_person_24"
-                app:layout_constraintBottom_toBottomOf="@+id/searchBar"
+            <com.mancj.materialsearchbar.MaterialSearchBar
+                android:id="@+id/searchBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bg"
+                android:padding="7dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.737"
-                app:layout_constraintStart_toEndOf="@+id/searchBar"
-                app:layout_constraintTop_toTopOf="@+id/searchBar"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.65999997"
+                app:mt_hint="Search..."
+                app:mt_placeholder="Search...."
+                app:mt_searchBarColor="@color/search_bg" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/icon_bg"
+            android:src="@drawable/baseline_person_24"
+            app:layout_constraintBottom_toBottomOf="@+id/search_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.59"
+            app:layout_constraintStart_toEndOf="@+id/search_layout"
+            app:layout_constraintTop_toTopOf="@+id/search_layout" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_hor_rec"
@@ -47,7 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+            app:layout_constraintTop_toBottomOf="@+id/search_layout" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_ver_rec"

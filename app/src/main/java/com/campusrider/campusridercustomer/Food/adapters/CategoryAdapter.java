@@ -39,7 +39,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         CategoryModel categoryModel=list.get(position);
         holder.binding.catName.setText(categoryModel.getName());
 
-        LinearLayoutManager layoutManager=new LinearLayoutManager(holder.binding.productRec.getContext(),LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(holder.binding.productRec.getContext(),LinearLayoutManager.HORIZONTAL,false);
         layoutManager.setInitialPrefetchItemCount(categoryModel.getProductModelArrayList().size());
         ProductAdapter productAdapter=new ProductAdapter(context,categoryModel.getProductModelArrayList());
         holder.binding.productRec.setLayoutManager(layoutManager);

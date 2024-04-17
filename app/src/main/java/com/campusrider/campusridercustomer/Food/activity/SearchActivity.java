@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,6 +38,7 @@ public class SearchActivity extends AppCompatActivity {
     ArrayList<GroceryItemModel> groceryItemModels;
     GroceryItemAdapter groceryItemAdapter;
     String type;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         rec=findViewById(R.id.search_rec);
+        imageView=findViewById(R.id.nothingToSeeImage);
 
         String query = getIntent().getStringExtra("query");
         type = getIntent().getStringExtra("type");
@@ -94,16 +98,28 @@ public class SearchActivity extends AppCompatActivity {
                                     object.getInt("vendor_id"),
                                     object.getString("vendor_name"),
                                     Constants.IMAGE_URL + object.getString("shop_image"),
+                                    object.getString("shop_category"),
+                                    object.getString("area"),
+                                    object.getString("address"),
+                                    object.getString("vendor_phone"),
                                     object.getString("delivery_time"),
+                                    object.getString("opening_time"),
+                                    object.getString("closing_time"),
+                                    object.getInt("vendor_status"),
+                                    object.getInt("delivery_fee"),
                                     object.getString("vendor_token")
                             );
                             homeVerModelList.add(vendor);
                         }
                         homeVerAdapter.notifyDataSetChanged();
+                    }if(mainObj.getString("status").equals("failed")) {
+                        rec.setVisibility(View.GONE);
+                        imageView.setVisibility(View.VISIBLE);
                     }
                     else {
 
                     }
+
 
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
@@ -146,6 +162,10 @@ public class SearchActivity extends AppCompatActivity {
                             groceryItemModels.add(item);
                         }
                         groceryItemAdapter.notifyDataSetChanged();
+                    }
+                    if(mainObj.getString("status").equals("failed")) {
+                        rec.setVisibility(View.GONE);
+                        imageView.setVisibility(View.VISIBLE);
                     }
                     else {
 

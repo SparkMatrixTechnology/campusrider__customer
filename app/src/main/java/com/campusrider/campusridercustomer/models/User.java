@@ -2,12 +2,11 @@ package com.campusrider.campusridercustomer.models;
 
 public class User {
      int customer_id;
-     String customer_name,username,address,customer_phone,customer_email,customer_password,student_id,id_card_front,customer_status,area,customer_token;
+     String customer_name,address,customer_phone,customer_email,customer_password,student_id,id_card_front,customer_status,area,customer_token;
 
-    public User(int customer_id, String customer_name, String username, String address, String customer_phone, String customer_email, String customer_password, String student_id, String id_card_front, String customer_status, String area, String customer_token) {
+    public User(int customer_id, String customer_name, String address, String customer_phone, String customer_email, String customer_password, String student_id, String id_card_front, String customer_status, String area, String customer_token) {
         this.customer_id = customer_id;
         this.customer_name = customer_name;
-        this.username = username;
         this.address = address;
         this.customer_phone = customer_phone;
         this.customer_email = customer_email;
@@ -33,14 +32,6 @@ public class User {
 
     public void setCustomer_name(String customer_name) {
         this.customer_name = customer_name;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getAddress() {

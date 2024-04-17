@@ -43,7 +43,7 @@ public class AfterLoginActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     String token;
     int customer_id;
-    String customer_name,username,address,customer_phone,customer_email,customer_password,student_id,id_card_front,customer_status,area=null,customer_token;
+    String customer_name,address,customer_phone,customer_email,customer_password,student_id,id_card_front,customer_status,area=null,customer_token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +108,6 @@ public class AfterLoginActivity extends AppCompatActivity {
                             JSONObject users=jsonArray.getJSONObject(i);
                             customer_id = users.getInt("customer_id");
                             customer_name = users.getString("customer_name");
-                            username = users.getString("username");
                             address = users.getString("address");
                             customer_phone = users.getString("customer_phone");
                             customer_email = users.getString("customer_email");
@@ -117,7 +116,7 @@ public class AfterLoginActivity extends AppCompatActivity {
                             id_card_front = Constants.IMAGE_URL + users.getString("id_card_front");
                             customer_status = users.getString("customer_status");
                             customer_token=users.getString("customer_token");
-                            sharedPrefManager.saveUser(new User(customer_id, customer_name, username, address, customer_phone,customer_email, customer_password, student_id,id_card_front,customer_status,area,customer_token));
+                            sharedPrefManager.saveUser(new User(customer_id, customer_name, address, customer_phone,customer_email, customer_password, student_id,id_card_front,customer_status,area,customer_token));
 
 
                         }

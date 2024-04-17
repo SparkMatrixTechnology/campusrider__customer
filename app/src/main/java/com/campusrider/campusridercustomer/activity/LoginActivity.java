@@ -24,6 +24,7 @@ import com.campusrider.campusridercustomer.models.LoginResponse;
 import com.campusrider.campusridercustomer.models.User;
 import com.campusrider.campusridercustomer.session.SharedPrefManager;
 import com.campusrider.campusridercustomer.utils.Constants;
+import com.hbb20.CountryCodePicker;
 
 
 import org.json.JSONArray;
@@ -34,13 +35,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText id,password;
+    EditText ePhone,password;
     Button login;
     int customer_id;
-    String customer_name,username,address,customer_phone,customer_email,customer_password,student_id,id_card_front,customer_status,area=null,customer_token;
-    String strid,strpassword;
+    String customer_name,address,customer_phone,customer_email,customer_password,student_id,id_card_front,customer_status,area=null,customer_token;
+    String sPhone,strpassword;
     String url= Constants.LOGIN_URL;
     SharedPrefManager sharedPrefManager;
+    CountryCodePicker countryCodePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +51,19 @@ public class LoginActivity extends AppCompatActivity {
 
        sharedPrefManager=new SharedPrefManager(getApplicationContext());
 
-        id=findViewById(R.id.contact_edit);
+        ePhone=findViewById(R.id.phone_edit);
         password=findViewById(R.id.password_edit);
         login=findViewById(R.id.login_button);
+        countryCodePicker=findViewById(R.id.countryCodePicker);
+        countryCodePicker.registerCarrierNumberEditText(ePhone);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LoginResponse loginResponse=null;
 
-                if(id.getText().toString().isEmpty()){
-                    id.setError("Field can't be empty");
+                if(ePhone.getText().toString().isEmpty()){
+                    ePhone.setError("Field can't be empty");
                     return;
                 }
                 if(password.getText().toString().isEmpty()){
@@ -67,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 else {
-                    strid=id.getText().toString().trim();
+                    sPhone=ePhone.getText().toString().trim();
                     strpassword=password.getText().toString().trim();
                     RequestQueue requestQueue= Volley.newRequestQueue(LoginActivity.this);
                     StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -84,7 +88,6 @@ public class LoginActivity extends AppCompatActivity {
                                             JSONObject users = jsonArray.getJSONObject(i);
                                             customer_id = users.getInt("customer_id");
                                             customer_name = users.getString("customer_name");
-                                            username = users.getString("username");
                                             address = users.getString("address");
                                             customer_phone = users.getString("customer_phone");
                                             customer_email = users.getString("customer_email");
@@ -93,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                                             id_card_front = Constants.IMAGE_URL + users.getString("id_card_front");
                                             customer_status = users.getString("customer_status");
                                             customer_token=users.getString("customer_token");
-                                            sharedPrefManager.saveUser(new User(customer_id, customer_name, username, address, customer_phone,customer_email, customer_password, student_id,id_card_front,customer_status,area,customer_token));
+                                            sharedPrefManager.saveUser(new User(customer_id, customer_name,address, customer_phone,customer_email, customer_password, student_id,id_card_front,customer_status,area,customer_token));
                                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
                                             Intent intent = new Intent(LoginActivity.this, AfterLoginActivity.class);
@@ -125,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String,String> params=new HashMap<String, String>();
-                            params.put("student_id",strid);
+                            params.put("customer_phone",countryCodePicker.getFullNumberWithPlus());
                             params.put("password",strpassword);
 
                             return params;

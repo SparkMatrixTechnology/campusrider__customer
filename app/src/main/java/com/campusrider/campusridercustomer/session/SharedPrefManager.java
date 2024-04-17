@@ -22,7 +22,6 @@ public class SharedPrefManager {
         editor=sharedPreferences.edit();
         editor.putInt("customer_id",user.getCustomer_id());
         editor.putString("customer_name",user.getCustomer_name());
-        editor.putString("username",user.getUsername());
         editor.putString("address",user.getAddress());
         editor.putString("customer_phone",user.getCustomer_phone());
         editor.putString("customer_email",user.getCustomer_email());
@@ -45,7 +44,6 @@ public class SharedPrefManager {
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return new User(sharedPreferences.getInt("customer_id",-1),
                 sharedPreferences.getString("customer_name",null),
-                sharedPreferences.getString("username",null),
                 sharedPreferences.getString("address",null),
                 sharedPreferences.getString("customer_phone",null),
                 sharedPreferences.getString("customer_email",null),

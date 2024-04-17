@@ -29,6 +29,7 @@ import com.campusrider.campusridercustomer.Food.models.VariationDetailsModel;
 import com.campusrider.campusridercustomer.Food.models.VariationModel;
 import com.campusrider.campusridercustomer.R;
 import com.campusrider.campusridercustomer.databinding.ShopListItemBinding;
+import com.campusrider.campusridercustomer.session.SharedPrefManager;
 import com.campusrider.campusridercustomer.utils.Constants;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.hishd.tinycart.model.Cart;
@@ -51,6 +52,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     VariationAdapter variationAdapter;
     int count=1;
     ProductModel currentProduct;
+    SharedPrefManager sharedPrefManager;
     int qty;
 
     public ProductAdapter(Context context, ArrayList<ProductModel> list) {
@@ -101,7 +103,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 variationAdapter=new VariationAdapter(sheetView.getContext(), variationModelArrayList);
                 variationrec.setAdapter(variationAdapter);
                 getVariation(context,itemid);
-                LinearLayoutManager layoutManager=new LinearLayoutManager(context);
+                LinearLayoutManager layoutManager=new LinearLayoutManager(context, RecyclerView.VERTICAL,false);
                 variationrec.setLayoutManager(layoutManager);
 
                  qty=1;
@@ -134,11 +136,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 sheetView.findViewById(R.id.add_to_cart_btn).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int selectedPosition = variationDetailsAdapter.getSelectedPosition();
-                        if (selectedPosition != -1) {
-                            VariationModel selectedVariation = variationModelArrayList.get(selectedPosition);
-                        }
-                        cart.addItem(currentProduct,qty);
+                         cart.addItem(currentProduct,qty);
                         Toast.makeText(context,"Added",Toast.LENGTH_SHORT).show();
                         bottomSheetDialog.dismiss();
                     }
@@ -154,7 +152,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public int getItemCount() {
         return list.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ShopListItemBinding binding;
@@ -167,11 +164,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         }
     }
-
     void getProductDetail(int id){
         RequestQueue queue= Volley.newRequestQueue(context);
 
-        StringRequest request=new StringRequest(Request.Method.GET, Constants.GET_VENDOR_PRODUCTS_DETAIL_URL+id, new Response.Listener<String>() {
+        sharedPrefManager=new SharedPrefManager(context);
+        StringRequest request=new StringRequest(Request.Method.GET,"http://campusriderbd.com/Customer/customer/product_detail_with_var.php?product_id=" +id +"&customer_id=" +sharedPrefManager.getUser().getCustomer_id() , new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -185,7 +182,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                                 product.getInt("id"),
                                 product.getString("product_name"),
                                 product.getString("product_description"),
-                                product.getInt("product_price"),
+                                product.getInt("total_price"),
                                 Constants.IMAGE_URL + product.getString("product_image"),
                                 product.getInt("vendor_id")
 
@@ -216,7 +213,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             public void onResponse(String response) {
 
                 try {
-
+                    Log.e("err",response);
                     JSONObject mainObj= new JSONObject(response);
                     if(mainObj.getString("status").equals("success")){
                         JSONArray variation_Array=mainObj.getJSONArray("Variation List");
@@ -236,8 +233,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                                     Log.e("catres1", response);
 
                                     variationDetailsModels.add(new VariationDetailsModel(
+                                            variation_detail.getInt("id"),
                                             variation_detail.getInt("variation_id"),
                                             variation_detail.getInt("price"),
+                                            variation_detail.getInt("product_id"),
                                             variation_detail.getString("description")
                                     ));
 

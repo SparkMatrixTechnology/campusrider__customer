@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/white">
+
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/detailed_img"
-        android:layout_width="130dp"
-        android:layout_height="110dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_margin="10dp"
         android:scaleType="centerCrop"
         android:src="@drawable/coffe"
@@ -34,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/detailed_img"
         app:layout_constraintStart_toEndOf="@+id/detailed_img"
         app:layout_constraintTop_toTopOf="@+id/detailed_img"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.169" />
 
     <TextView
         android:id="@+id/price"
@@ -48,7 +49,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/food_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintHorizontal_bias="0.627"
         app:layout_constraintStart_toEndOf="@+id/food_name"
         app:layout_constraintTop_toTopOf="@+id/food_name"
         app:layout_constraintVertical_bias="0.0" />
@@ -58,16 +59,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
         android:background="@color/white"
         android:orientation="horizontal"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/price"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/food_name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.694">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price"
+        app:layout_constraintVertical_bias="0.382">
 
 
         <ImageView
@@ -98,6 +98,17 @@
             android:src="@drawable/ic_add_circle"
             app:tint="@color/purple_700" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/variationrec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/food_name"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="@+id/food_name"
+        app:layout_constraintTop_toBottomOf="@+id/food_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

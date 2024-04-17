@@ -7,6 +7,7 @@
     android:background="@color/backgroundColor"
     tools:context=".Food.activity.CartActivity">
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -35,15 +36,17 @@
         android:background="#D6D6D6"
         android:orientation="horizontal"
         android:padding="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/continueBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="595dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subtotal"
             android:fontFamily="@font/open_sans_bold"
+            android:text="Subtotal"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -53,8 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:text="(without taxes)"
             android:fontFamily="@font/open_sans_bold"
+            android:text="(without taxes)"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="italic" />
@@ -64,9 +67,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/open_sans"
             android:gravity="right"
             android:text="PKR 0.0"
-            android:fontFamily="@font/open_sans"
             android:textColor="#4CAF50"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -74,13 +77,20 @@
 
     <Button
         android:id="@+id/continueBtn"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_bg"
         android:fontFamily="@font/open_sans_bold"
+        android:text="Review Payment and Address"
+        android:textAllCaps="false"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomPrice"
+        app:layout_constraintVertical_bias="0.974"
+        tools:ignore="TextSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

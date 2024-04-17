@@ -3,7 +3,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/variation_card"
-        android:background="@color/white"
+        android:background="@drawable/edittext_bg"
         android:layout_marginBottom="10dp"
         >
         <LinearLayout
@@ -27,7 +27,7 @@
                     android:backgroundTint="@color/black"
                     android:text="Variation name"
                     android:layout_marginEnd="5dp"
-                    android:textSize="20dp"
+                    android:textSize="15sp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray" />
 
@@ -38,12 +38,17 @@
                     android:fontFamily="@font/open_sans_bold"
                     android:text="Required"
                     android:layout_marginTop="10dp"
-                    android:layout_marginStart="55dp"
+                    android:layout_marginStart="25dp"
                     android:layout_marginEnd="8dp"
                     android:textColor="@color/red"
-                    android:textSize="20dp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+
 
 
             <androidx.recyclerview.widget.RecyclerView

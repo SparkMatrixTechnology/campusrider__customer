@@ -10,6 +10,7 @@ public class Constants {
     public static String Registration_URL = API_BASE_URL + "registration.php";
     public static String UPDATE_USER_URL = API_BASE_URL + "update_user.php?id=";
     public static String GET_VENDORS_URL = API_BASE_URL + "vendors.php?area=";
+    public static String GET_Single_VENDORS_URL=API_BASE_URL+"single_vendor?id=";
     public static String UPDATE_USER_TOKEN_URL = API_BASE_URL + "update_token.php?id=";
     public static String GET_VARIATION_URL=API_BASE_URL+"view_variation.php?product_id=";
     public static String GET_VARIATION_DETAILS_URL=API_BASE_URL+"view_variation_details.php?variation_id=";

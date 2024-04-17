@@ -71,31 +71,31 @@
         app:layout_constraintTop_toBottomOf="@id/studentid_edit"
         app:layout_constraintWidth_percent=".8" />
 
-    <EditText
-        android:id="@+id/username_edit"
-        android:layout_width="0dp"
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/countryCodePicker"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/baseline_person_24"
-        android:drawablePadding="13dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fullName_edit"
-        app:layout_constraintWidth_percent=".8" />
+        android:layout_marginEnd="14dp"
+        app:ccp_arrowColor="@color/white"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_contentColor="@color/white"
+        app:ccp_showArrow="true"
+        app:ccp_showFlag="false"
+        app:ccp_showNameCode="false"
+        app:ccp_showPhoneCode="true"
+        app:layout_constraintBottom_toBottomOf="@+id/phone"
+        app:layout_constraintEnd_toStartOf="@+id/phone"
+        app:layout_constraintStart_toStartOf="@+id/fullName_edit"
+        app:layout_constraintTop_toTopOf="@+id/phone"
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <EditText
-        android:id="@+id/contact_edit"
-        android:layout_width="0dp"
+        android:id="@+id/phone"
+        android:layout_width="259dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#CCCCCC"
         android:drawableLeft="@drawable/baseline_phone_24"
         android:drawablePadding="13dp"
@@ -105,11 +105,10 @@
         android:minHeight="48dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/username_edit"
-        app:layout_constraintWidth_percent=".8" />
-
+        app:layout_constraintEnd_toEndOf="@+id/fullName_edit"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/fullName_edit"
+        app:layout_constraintTop_toBottomOf="@+id/fullName_edit" />
     <EditText
         android:id="@+id/address_edit"
         android:layout_width="0dp"
@@ -126,7 +125,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/contact_edit"
+        app:layout_constraintTop_toBottomOf="@id/phone"
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
@@ -152,7 +151,7 @@
         android:id="@+id/next_btn"
         android:layout_width="298dp"
         android:layout_height="61dp"
-        android:background="@drawable/btn_bg_shape"
+        android:background="@drawable/btn_bg"
         android:padding="14dp"
         android:text="Next"
         android:textAllCaps="true"

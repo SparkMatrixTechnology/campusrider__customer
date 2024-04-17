@@ -120,9 +120,7 @@ public class ShopActivity extends AppCompatActivity {
         StringRequest request=new StringRequest(Request.Method.GET, Constants.GET_PRODUCT_CAT_URL+id, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
                 try {
-
                     JSONObject mainObj= new JSONObject(response);
                     if(mainObj.getString("status").equals("success")){
                         JSONArray cat_Array=mainObj.getJSONArray("category");

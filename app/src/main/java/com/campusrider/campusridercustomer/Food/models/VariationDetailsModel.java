@@ -1,13 +1,31 @@
 package com.campusrider.campusridercustomer.Food.models;
 
 public class VariationDetailsModel {
-    int variation_id,price;
+    int id,variation_id,price,product_id;
     String description;
 
-    public VariationDetailsModel(int variation_id, int price, String description) {
+    public VariationDetailsModel(int id, int variation_id, int price, int product_id, String description) {
+        this.id = id;
         this.variation_id = variation_id;
         this.price = price;
+        this.product_id = product_id;
         this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(int product_id) {
+        this.product_id = product_id;
     }
 
     public int getVariation_id() {
