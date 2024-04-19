@@ -38,8 +38,7 @@ public class HomeVerAdapter extends RecyclerView.Adapter<HomeVerAdapter.ViewHold
         HomeVerModel vendorModel=list.get(position);
         holder.binding.verName.setText(vendorModel.getVendor_name());
         Glide.with(context).load(vendorModel.getShop_image()).into(holder.binding.verImage);
-        holder.binding.openingTime.setText(" "+vendorModel.getDelivery_time()+" min");
-        holder.binding.catName.setText(vendorModel.getShop_category());
+        holder.binding.area.setText(vendorModel.getArea());
         holder.binding.deliveryFee.setText(" Tk "+vendorModel.getDelivery_fee());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

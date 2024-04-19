@@ -36,94 +36,81 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0">
-
-            <TextView
-                android:id="@+id/ver_name"
-                android:layout_width="122dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="Store Name"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.4"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.118"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.246" />
-
+                app:layout_constraintTop_toTopOf="parent" />
             <TextView
-                android:id="@+id/cat_name"
-                android:layout_width="122dp"
+                android:id="@+id/ver_name"
+                android:layout_width="273dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="cat Name"
-                android:textAlignment="center"
-                android:textColor="@color/search_bg"
-                android:textSize="11sp"
+                android:fontFamily="@font/noto_serif_bold"
+                android:text="Store Name"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/banner"
+                app:layout_constraintHorizontal_bias="0.005"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:drawableLeft="@drawable/baseline_location_black_on_24"
+                android:drawablePadding="2dp"
+                android:fontFamily="@font/noto_serif_bold"
+                android:text="zero pont"
+                android:textColor="@color/black"
+                android:textSize="17dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/ver_name"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/ver_name"
-                app:layout_constraintTop_toBottomOf="@+id/ver_name" />
+                app:layout_constraintTop_toBottomOf="@+id/ver_name"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/time_img"
-                android:layout_width="29dp"
-                android:layout_height="29dp"
-                android:src="@drawable/ic_baseline_access_time_24"
+                android:id="@+id/banner"
+                android:layout_width="65dp"
+                android:layout_height="74dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.642"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.852" />
-
-            <TextView
-                android:id="@+id/openingTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="1dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="30 min"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/time_img"
-                app:layout_constraintStart_toEndOf="@+id/time_img"
-                app:layout_constraintTop_toTopOf="@+id/time_img" />
-
-            <ImageView
-                android:id="@+id/cycle_img"
-                android:layout_width="29dp"
-                android:layout_height="29dp"
-                android:src="@drawable/baseline_directions_bike_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.642"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.262" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/delivery_fee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="1dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="TK 30"
+                android:fontFamily="@font/noto_serif_bold"
+                android:text="TK 70"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/cycle_img"
-                app:layout_constraintStart_toEndOf="@+id/cycle_img"
-                app:layout_constraintTop_toTopOf="@+id/cycle_img" />
+                app:layout_constraintBottom_toBottomOf="@+id/banner"
+                app:layout_constraintEnd_toEndOf="@+id/banner"
+                app:layout_constraintHorizontal_bias="0.368"
+                app:layout_constraintStart_toStartOf="@+id/banner"
+                app:layout_constraintTop_toTopOf="@+id/banner"
+                app:layout_constraintVertical_bias="0.24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

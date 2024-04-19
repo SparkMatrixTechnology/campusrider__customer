@@ -468,7 +468,7 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/drinks"
+                android:src="@drawable/drinks_btn"
                 android:clickable="true"
                 app:layout_constraintEnd_toEndOf="@+id/textView13"
                 app:layout_constraintHorizontal_bias="0.316"

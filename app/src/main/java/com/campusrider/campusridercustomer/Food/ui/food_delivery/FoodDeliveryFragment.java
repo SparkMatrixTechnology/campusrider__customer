@@ -23,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.campusrider.campusridercustomer.Food.activity.CategoryActivity;
 import com.campusrider.campusridercustomer.Food.activity.SearchActivity;
 import com.campusrider.campusridercustomer.Food.activity.SelectAddressActivity;
 import com.campusrider.campusridercustomer.Food.adapters.HomeHorAdapter;
@@ -53,14 +54,47 @@ public class FoodDeliveryFragment extends Fragment {
     String url= Constants.GET_FOOD_CATEGORIES_URL;
     SharedPrefManager sharedPrefManager;
     TextView areaText,addressText;
-    ImageView eprofile;
     FragmentFoodDeliveryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-       binding = FragmentFoodDeliveryBinding.inflate(inflater, container, false);
+         binding = FragmentFoodDeliveryBinding.inflate(inflater, container, false);
         View root=binding.getRoot();
-        homeHorizontalRec=root.findViewById(R.id.home_hor_rec);
+
+        binding.meals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CategoryActivity.class);
+                intent.putExtra("type","meal");
+                startActivity(intent);
+            }
+        });
+        binding.drinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CategoryActivity.class);
+                intent.putExtra("type","drink");
+                startActivity(intent);
+            }
+        });
+        binding.snacks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CategoryActivity.class);
+                intent.putExtra("type","snack");
+                startActivity(intent);
+            }
+        });
+        binding.sweets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CategoryActivity.class);
+                intent.putExtra("type","sweet");
+                startActivity(intent);
+            }
+        });
+
+       /* homeHorizontalRec=root.findViewById(R.id.home_hor_rec);
         homeVerticalRec=root.findViewById(R.id.home_ver_rec);
         areaText=root.findViewById(R.id.areaText);
         addressText=root.findViewById(R.id.addressText);
@@ -123,11 +157,11 @@ public class FoodDeliveryFragment extends Fragment {
         getVendor(getContext(),sharedPrefManager.getUser().getArea());
         homeVerticalRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL,false));
         homeVerticalRec.setHasFixedSize(true);
-        homeVerticalRec.setNestedScrollingEnabled(false);
+        homeVerticalRec.setNestedScrollingEnabled(false);*/
 
         return root;
     }
-
+/*
     public void getVendor(Context context,String area){
         RequestQueue queue= Volley.newRequestQueue(context);
         StringRequest request=new StringRequest(Request.Method.GET, Constants.GET_VENDORS_URL+area, new Response.Listener<String>() {
@@ -219,5 +253,5 @@ public class FoodDeliveryFragment extends Fragment {
         queue.add(request);
     }
 
-
+*/
 }

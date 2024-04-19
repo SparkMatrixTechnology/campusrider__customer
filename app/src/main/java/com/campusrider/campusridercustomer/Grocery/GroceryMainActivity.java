@@ -74,82 +74,82 @@ public class GroceryMainActivity extends AppCompatActivity {
         //String image= sharedPrefManager.getUser().getCustomer_image();
         profile_name.setText(name);
         profile_number.setText(number);
-        if(name.charAt(0)=='A'){
+        if(name.charAt(0)=='A' || name.charAt(0)=='a'){
             profile_image.setImageResource(R.drawable.a);
         }
-        else if(name.charAt(0)=='B'){
+        else if(name.charAt(0)=='B' || name.charAt(0)=='b'){
             profile_image.setImageResource(R.drawable.b);
         }
-        else if(name.charAt(0)=='C'){
+        else if(name.charAt(0)=='C' || name.charAt(0)=='c'){
             profile_image.setImageResource(R.drawable.c);
         }
-        else if(name.charAt(0)=='D'){
+        else if(name.charAt(0)=='D' || name.charAt(0)=='d'){
             profile_image.setImageResource(R.drawable.d);
         }
-        else if(name.charAt(0)=='E'){
+        else if(name.charAt(0)=='E' || name.charAt(0)=='e'){
             profile_image.setImageResource(R.drawable.d);
         }
-        else if(name.charAt(0)=='F'){
+        else if(name.charAt(0)=='F' || name.charAt(0)=='f'){
             profile_image.setImageResource(R.drawable.f);
         }
-        else if(name.charAt(0)=='G'){
+        else if(name.charAt(0)=='G' || name.charAt(0)=='g'){
             profile_image.setImageResource(R.drawable.g);
         }
-        else if(name.charAt(0)=='H'){
+        else if(name.charAt(0)=='H' || name.charAt(0)=='h'){
             profile_image.setImageResource(R.drawable.h);
         }
-        else if(name.charAt(0)=='I'){
+        else if(name.charAt(0)=='I' || name.charAt(0)=='i'){
             profile_image.setImageResource(R.drawable.i);
         }
-        else if(name.charAt(0)=='J'){
+        else if(name.charAt(0)=='J' || name.charAt(0)=='j'){
             profile_image.setImageResource(R.drawable.j);
         }
-        else if(name.charAt(0)=='K'){
+        else if(name.charAt(0)=='K' || name.charAt(0)=='k'){
             profile_image.setImageResource(R.drawable.k);
         }
-        else if(name.charAt(0)=='L'){
+        else if(name.charAt(0)=='L' || name.charAt(0)=='l'){
             profile_image.setImageResource(R.drawable.l);
         }
-        else if(name.charAt(0)=='M'){
+        else if(name.charAt(0)=='M' || name.charAt(0)=='m'){
             profile_image.setImageResource(R.drawable.m);
         }
-        else if(name.charAt(0)=='N'){
+        else if(name.charAt(0)=='N' || name.charAt(0)=='n'){
             profile_image.setImageResource(R.drawable.n);
         }
-        else if(name.charAt(0)=='O'){
+        else if(name.charAt(0)=='O' || name.charAt(0)=='o'){
             profile_image.setImageResource(R.drawable.o);
         }
-        else if(name.charAt(0)=='P'){
+        else if(name.charAt(0)=='P' || name.charAt(0)=='p'){
             profile_image.setImageResource(R.drawable.p);
         }
-        else if(name.charAt(0)=='Q'){
+        else if(name.charAt(0)=='Q' || name.charAt(0)=='q'){
             profile_image.setImageResource(R.drawable.q);
         }
-        else if(name.charAt(0)=='R'){
+        else if(name.charAt(0)=='R' || name.charAt(0)=='r'){
             profile_image.setImageResource(R.drawable.r);
         }
-        else if(name.charAt(0)=='S'){
+        else if(name.charAt(0)=='S' || name.charAt(0)=='s'){
             profile_image.setImageResource(R.drawable.s);
         }
-        else if(name.charAt(0)=='T'){
+        else if(name.charAt(0)=='T' || name.charAt(0)=='t'){
             profile_image.setImageResource(R.drawable.t);
         }
-        else if(name.charAt(0)=='U'){
+        else if(name.charAt(0)=='U' || name.charAt(0)=='u'){
             profile_image.setImageResource(R.drawable.u);
         }
-        else if(name.charAt(0)=='V'){
+        else if(name.charAt(0)=='V' || name.charAt(0)=='v'){
             profile_image.setImageResource(R.drawable.v);
         }
-        else if(name.charAt(0)=='W'){
+        else if(name.charAt(0)=='W' || name.charAt(0)=='w'){
             profile_image.setImageResource(R.drawable.w);
         }
-        else if(name.charAt(0)=='X'){
+        else if(name.charAt(0)=='X' || name.charAt(0)=='x'){
             profile_image.setImageResource(R.drawable.x);
         }
-        else if(name.charAt(0)=='Y'){
+        else if(name.charAt(0)=='Y' || name.charAt(0)=='y'){
             profile_image.setImageResource(R.drawable.y);
         }
-        else if(name.charAt(0)=='Z'){
+        else if(name.charAt(0)=='Z' || name.charAt(0)=='z'){
             profile_image.setImageResource(R.drawable.z);
         }
 
@@ -157,7 +157,7 @@ public class GroceryMainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_pantry,R.id.nav_order,R.id.nav_help,R.id.nav_complain)
+                R.id.nav_home, R.id.nav_pantry,R.id.nav_order,R.id.nav_help,R.id.nav_complain,R.id.nav_profile)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_grocery_main);

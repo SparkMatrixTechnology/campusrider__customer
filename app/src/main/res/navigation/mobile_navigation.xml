@@ -19,12 +19,17 @@
     <fragment
         android:id="@+id/nav_help"
         android:name="com.campusrider.campusridercustomer.Food.ui.help.FoodHelpFragment"
-        android:label="@string/help_center"
+        android:label="FAQ"
         tools:layout="@layout/fragment_food_help" />
     <fragment
         android:id="@+id/nav_complain"
         android:name="com.campusrider.campusridercustomer.ComplainFragment"
         android:label="Query"
         tools:layout="@layout/fragment_complain" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.campusrider.campusridercustomer.profileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>

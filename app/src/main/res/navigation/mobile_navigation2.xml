@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/nav_help"
         android:name="com.campusrider.campusridercustomer.Grocery.ui.HelpCenter.HelpFragment"
-        android:label="@string/help_center"
+        android:label="FAQ"
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/nav_order"
@@ -32,4 +32,9 @@
         android:name="com.campusrider.campusridercustomer.ComplainFragment"
         android:label="Query"
         tools:layout="@layout/fragment_complain" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.campusrider.campusridercustomer.profileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

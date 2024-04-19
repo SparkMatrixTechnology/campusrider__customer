@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.campusrider.campusridercustomer.Food.MainActivity;
 import com.campusrider.campusridercustomer.Food.activity.SelectAddressActivity;
 
 import com.campusrider.campusridercustomer.Grocery.GroceryMainActivity;
@@ -57,7 +58,7 @@ public class AfterLoginActivity extends AppCompatActivity {
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AfterLoginActivity.this, SelectAddressActivity.class);
+                Intent intent=new Intent(AfterLoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

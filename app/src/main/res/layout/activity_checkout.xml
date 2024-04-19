@@ -13,6 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -403,6 +404,36 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Refund Amount"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintHorizontal_bias="0.202"
+                app:layout_constraintStart_toStartOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+            <TextView
+                android:id="@+id/refund_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tk 0"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintStart_toEndOf="@+id/textView15"
+                app:layout_constraintTop_toTopOf="@+id/textView15"
+                app:layout_constraintVertical_bias="0.0" />
+
             <View
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
@@ -410,8 +441,9 @@
                 android:layout_marginTop="12dp"
                 android:background="@color/text_bg"
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
+                app:layout_constraintHorizontal_bias="0.614"
                 app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
             <TextView
                 android:id="@+id/total_bill"
@@ -426,7 +458,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/view2"
-                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                app:layout_constraintTop_toBottomOf="@+id/refund_amount" />
+
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
@@ -470,8 +503,8 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/drinks"
                 android:clickable="true"
+                android:src="@drawable/drinks_btn"
                 app:layout_constraintEnd_toEndOf="@+id/textView13"
                 app:layout_constraintHorizontal_bias="0.316"
                 app:layout_constraintStart_toStartOf="@+id/textView13"
@@ -508,8 +541,8 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="28dp"
-                android:src="@drawable/sweets"
                 android:clickable="true"
+                android:src="@drawable/sweets"
                 app:layout_constraintBottom_toBottomOf="@+id/drinks_image"
                 app:layout_constraintStart_toEndOf="@+id/view23"
                 app:layout_constraintTop_toTopOf="@+id/drinks_image"
@@ -636,6 +669,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/confirmBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"

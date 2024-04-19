@@ -99,7 +99,23 @@ public class CheckoutActivity extends AppCompatActivity {
                 payment_type="Nagad";
             }
         });
-        binding.restaurantName.setText(v);
+        binding.restaurantName.setText(vendor_name);
+        binding.drinksImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+                intent.putExtra("type","drink");
+                startActivity(intent);
+            }
+        });
+        binding.sweetImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+                intent.putExtra("type","sweet");
+                startActivity(intent);
+            }
+        });
       getFee(new feeCallBack() {
       @Override
       public void onSuccess(int response) {
@@ -121,21 +137,21 @@ public class CheckoutActivity extends AppCompatActivity {
           adapter=new CartAdapter(CheckoutActivity.this, productModels, new CartAdapter.CartListener() {
               @Override
               public void onQuantityChanged() {
-                  binding.subtotal.setText("TK "+ cart.getTotalPrice());
+                  binding.totalCostText.setText("TK "+ cart.getTotalPrice());
 
               }
           });
           LinearLayoutManager layoutManager=new LinearLayoutManager(CheckoutActivity.this);
           DividerItemDecoration itemDecoration=new DividerItemDecoration(CheckoutActivity.this,layoutManager.getOrientation());
-          binding.cartList.setLayoutManager(layoutManager);
-          binding.cartList.addItemDecoration(itemDecoration);
-          binding.cartList.setAdapter(adapter);
+          binding.orderItemsRec.setLayoutManager(layoutManager);
+          binding.orderItemsRec.addItemDecoration(itemDecoration);
+          binding.orderItemsRec.setAdapter(adapter);
           mergeCartItems();
-          binding.subtotal.setText("TK "+ cart.getTotalPrice());
+          binding.totalCostText.setText("TK "+ cart.getTotalPrice());
           subtotal=cart.getTotalPrice().intValue();
           total_price=cart.getTotalPrice().intValue()+delivery;
-          binding.total.setText("TK "+total_price);
-          binding.checkoutBtn.setOnClickListener(new View.OnClickListener() {
+          binding.totalBill.setText("Total Bill: TK "+total_price);
+          binding.confirmBtn.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
                   processOrder(vendor_token,payment_type);
@@ -212,11 +228,11 @@ public class CheckoutActivity extends AppCompatActivity {
 
             productOrder.put("customer_id", customer_id);
             productOrder.put("vendor_id", vendor_id);
-            productOrder.put("address", binding.addressBox.getText().toString());
+           // productOrder.put("address", binding.addressBox.getText().toString());
             productOrder.put("cost",subtotal);
             productOrder.put("delivery_fee",delivery);
             productOrder.put("total_price",total_price);
-            productOrder.put("comment", binding.commentBox.getText().toString());
+            //.put("comment", binding.commentBox.getText().toString());
             productOrder.put("payment_type",payment_type);
             productOrder.put("payment_status","Unpaid");
             productOrder.put("order_status","Placed");
@@ -347,9 +363,10 @@ public class CheckoutActivity extends AppCompatActivity {
         queue.add(request);
     }
 
+
     public void getFee(feeCallBack feeCallBack){
         RequestQueue queue= Volley.newRequestQueue(CheckoutActivity.this);
-        StringRequest request =new StringRequest(Request.Method.POST, Constants.GET_delivery_fee_URL+sharedPrefManager.getUser().getArea(), new Response.Listener<String>() {
+    /*    StringRequest request =new StringRequest(Request.Method.POST, Constants.GET_delivery_fee_URL+sharedPrefManager.getUser().getArea(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -372,7 +389,7 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         }
         );
-        queue.add(request);
+        queue.add(request);*/
     }
 
     public void mergeCartItems() {
